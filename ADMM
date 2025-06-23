@@ -1,0 +1,19 @@
+delta=1e-3;
+x=[3,4];
+z=[5,6];
+c=[4,4];
+lamda=[8,3];
+rho=2.54;
+residuals=0;
+k=0;
+while norm(x-z)>delta
+  x=(rho*x-lamda)/(2+rho);
+  z=(rho*x+lamda-c)/rho;
+  lamda=lamda+(x-z);
+  k=k+1;
+  res=norm(x-z);
+  residuals=[residuals,res];
+  fprintf("The number of iterations are %d",f);
+end
+figure;
+plot(1:k,residuals,'Linewidth',2)
