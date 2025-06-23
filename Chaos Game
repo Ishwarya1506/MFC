@@ -1,0 +1,14 @@
+A=[0;0];
+B=[4,7];
+C=[3,2];
+vertices=[A;B;C];
+p=rand(2,1)
+points=zeros(100,2)
+for i=1:100
+  target=vertices(randi(i),:);
+  p=(target+p)/2;
+  points(i,:)=p;
+end
+figure
+plot(points(:,1),points(:,2),'b');
+axis off
